@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!--    <title>debtManagement</title>-->
+  <meta name="description" content="Description for debtManagement" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="theme-color" content="#000000" />
+  <!--    <link rel="icon" href="favicon.ico" />-->
+  <link rel="manifest" href="manifest.webapp" />
+  <!--    <link rel="stylesheet" href="content/css/loading.css" />-->
+  <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
+  <script src="content/plugins/jquery/jquery.min.js"></script>
+  <script src="content/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+  <title>Quản Lý Nợ</title>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+  <!--    &lt;!&ndash;[if lt IE 9]>-->
+  <!--      <p class="browserupgrade">-->
+  <!--        You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve-->
+  <!--        your experience.-->
+  <!--      </p>-->
+  <!--    <![endif]&ndash;&gt;-->
+  <div id="root">
+    <!--      <div class="app-loading">-->
+    <!--        <div class="lds-pacman">-->
+    <!--          <div>-->
+    <!--            <div></div>-->
+    <!--            <div></div>-->
+    <!--            <div></div>-->
+    <!--          </div>-->
+    <!--          <div>-->
+    <!--            <div></div>-->
+    <!--            <div></div>-->
+    <!--            <div></div>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--      <div class="app-loading">-->
+    <!--        <div id="jhipster-error" style="display: none">-->
+    <!--          &lt;!&ndash; This content is for troubleshooting purpose and will be removed when app renders &ndash;&gt;-->
+    <!--          <h1>An error has occurred :-(</h1>-->
+    <!--          <h2>Usual error causes</h2>-->
+    <!--          <ol>-->
+    <!--            <li>-->
+    <!--              You started the application from an IDE and you didn't run <code style="color: red">npm start</code> or-->
+    <!--              <code style="color: red">npm run webapp:build</code>.-->
+    <!--            </li>-->
+    <!--            <li>-->
+    <!--              You had a network error while running <code style="color: red">npm install</code>. If you are behind a corporate proxy, it is-->
+    <!--              likely that this error was caused by your proxy. Have a look at the JHipster error logs, you will probably have the cause of-->
+    <!--              the error.-->
+    <!--            </li>-->
+    <!--            <li>-->
+    <!--              You installed a Node.js version that doesn't work with JHipster: please use an LTS (long-term support) version, as it's the-->
+    <!--              only version we support.-->
+    <!--            </li>-->
+    <!--          </ol>-->
+    <!--          <h2>Building the client side code again</h2>-->
+    <!--          <p>If you want to go fast, run <code style="color: red">./mvnw</code> to build and run everything.</p>-->
+    <!--          <p>If you want to have more control, so you can debug your issue more easily, you should follow the following steps:</p>-->
+    <!--          <ol>-->
+    <!--            <li>Install npm dependencies with the command <code style="color: red">npm install</code></li>-->
+    <!--            <li>-->
+    <!--              Build the client with the command <code style="color: red">npm run webapp:build</code> or-->
+    <!--              <code style="color: red">npm start</code>-->
+    <!--            </li>-->
+    <!--            <li>Start the server with <code style="color: red">./mvnw</code> or using your IDE</li>-->
+    <!--          </ol>-->
+
+    <!--          <h2>Getting more help</h2>-->
+
+    <!--          <h3>If you have a question on how to use JHipster</h3>-->
+    <!--          <p>-->
+    <!--            Go to Stack Overflow with the-->
+    <!--            <a href="http://stackoverflow.com/tags/jhipster" target="_blank" rel="noopener noreferrer">"jhipster"</a> tag.-->
+    <!--          </p>-->
+
+    <!--          <h3>If you have a bug or a feature request</h3>-->
+    <!--          <p>-->
+    <!--            First read our-->
+    <!--            <a href="https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer"-->
+    <!--              >contributing guidelines</a-->
+    <!--            >.-->
+    <!--          </p>-->
+    <!--          <p>-->
+    <!--            Then, fill a ticket on our-->
+    <!--            <a href="https://github.com/jhipster/generator-jhipster/issues/new/choose" target="_blank" rel="noopener noreferrer"-->
+    <!--              >bug tracker</a-->
+    <!--            >, we'll be happy to resolve your issue!-->
+    <!--          </p>-->
+
+    <!--          <h3>If you want to chat with contributors and other users</h3>-->
+    <!--          <p>-->
+    <!--            Join our chat room on-->
+    <!--            <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">Gitter.im</a>. Please note-->
+    <!--            that this is a public chat room, and that we expect you to respect other people and write in a correct English language!-->
+    <!--          </p>-->
+    <!--          &lt;!&ndash; end of troubleshooting content &ndash;&gt;-->
+    <!--        </div>-->
+    <!--      </div>-->
+  </div>
+  <noscript>
+    <h1>You must enable JavaScript to view this page.</h1>
+  </noscript>
+  <script type="text/javascript">
+    // show an error message if the app loading takes more than 4 sec
+    window.onload = function () {
+      setTimeout(showError, 4000);
+    };
+    function showError() {
+      var errorElm = document.getElementById('jhipster-error');
+      if (errorElm && errorElm.style) {
+        errorElm.style.display = 'block';
+      }
+    }
+  </script>
+  <!-- uncomment this for adding service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(function () {
+              console.log('Service Worker Registered');
+            });
+        });
+      }
+    </script>
+    -->
+  <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>-->
+
+  <!-- jQuery -->
+  <!-- <script src="content/plugins/jquery/jquery.min.js"></script> -->
+  <!-- jQuery UI 1.11.4 -->
+  <!-- <script src="content/plugins/jquery-ui/jquery-ui.min.js"></script> -->
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <!-- Bootstrap 4 -->
+  <script src="content/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- ChartJS -->
+  <script src="content/plugins/chart.js/Chart.min.js"></script>
+  <!-- Sparkline -->
+  <script src="content/plugins/sparklines/sparkline.js"></script>
+  <!-- JQVMap -->
+  <script src="content/plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="content/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="content/plugins/jquery-knob/jquery.knob.min.js"></script>
+  <!-- daterangepicker -->
+  <script src="content/plugins/moment/moment.min.js"></script>
+  <script src="content/plugins/daterangepicker/daterangepicker.js"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="content/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- Summernote -->
+  <script src="content/plugins/summernote/summernote-bs4.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="content/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="content/dist/js/adminlte.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <!-- <script src="%PUBLIC_URL%/dist/js/demo.js"></script> -->
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <!-- <script src="%PUBLIC_URL%/dist/js/pages/dashboard.js"></script> -->
+
+  <!-- DataTables  & Plugins -->
+  <script src="content/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="content/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="content/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="content/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <script src="content/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="content/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <script src="content/plugins/jszip/jszip.min.js"></script>
+  <script src="content/plugins/pdfmake/pdfmake.min.js"></script>
+  <script src="content/plugins/pdfmake/vfs_fonts.js"></script>
+  <script src="content/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+  <script src="content/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+  <script src="content/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+</body>
+
+</html>

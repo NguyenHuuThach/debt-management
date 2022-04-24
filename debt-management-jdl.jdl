@@ -1,0 +1,50 @@
+// an ignored comment
+/** not an ignored comment */
+entity Contract {
+	dateStart Instant required,
+    numberInterestPayments Integer required,
+    totalLoanAmount Double required,
+    interestPaymentPeriod Integer required,
+    interestRate Integer required,
+    customerName String required,
+    customerAddress String required,
+    customerPhoneNumber String required,
+    customerIdentityCard String required,
+    productName String required,
+    imei String,
+    icloud String,
+    userCreate String,
+    note String,
+    status StatusContract,
+    isDeleted Boolean,
+}
+
+enum StatusContract {
+    NORMAL, GOOD, BAD, EXPIRED
+}
+
+entity InterestPay {
+	contractId Long required,
+    interestPayDate Instant required,
+    interestPayAmount Double required,
+    payerName String,
+    note String,
+    status Boolean,
+}
+
+entity PayDownPrincipal {
+	contractId Long required,
+    payDownPrincipalDate Instant required,
+    payDownPrincipalAmount Double required,
+    payerName String,
+    userCreate String,
+    note String,
+}
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceClass
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

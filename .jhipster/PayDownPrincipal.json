@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20220416163807",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "pay_down_principal",
+  "fields": [
+    {
+      "fieldName": "contractId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "payDownPrincipalDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "payDownPrincipalAmount",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "payerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userCreate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PayDownPrincipal",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

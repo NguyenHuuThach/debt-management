@@ -1,0 +1,8 @@
+.btn-debt-function-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  .btn-debt-function {
+    cursor: pointer;
+  }
+}

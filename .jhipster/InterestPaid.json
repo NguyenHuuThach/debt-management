@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20220416163806",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "interest_paid",
+  "fields": [
+    {
+      "fieldName": "contractId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "interestPaidDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "payerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paidAmount",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "InterestPaid",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

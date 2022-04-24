@@ -1,0 +1,25 @@
+{
+  "applications": "*",
+  "changelogDate": "20220416163808",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "contract_settlement",
+  "fields": [
+    {
+      "fieldName": "contractId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "settlerName",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ContractSettlement",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

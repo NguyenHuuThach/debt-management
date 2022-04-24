@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Contract.
+    -->
+    <changeSet id="20220416163805-1" author="jhipster">
+        <createTable tableName="contract" remarks="not an ignored comment">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="date_start" type="${datetimeType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="number_interest_payments" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="total_loan_amount" type="double">
+                <constraints nullable="false" />
+            </column>
+            <column name="interest_payment_period" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="interest_rate" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="customer_name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="customer_address" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="customer_phone_number" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="customer_identity_card" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="product_name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="imei" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="icloud" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="user_create" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="note" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_deleted" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="contract" columnName="date_start" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220416163805-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/contract.csv"
+                  separator=";"
+                  tableName="contract"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="date_start" type="date"/>
+            <column name="number_interest_payments" type="numeric"/>
+            <column name="total_loan_amount" type="numeric"/>
+            <column name="interest_payment_period" type="numeric"/>
+            <column name="interest_rate" type="numeric"/>
+            <column name="customer_name" type="string"/>
+            <column name="customer_address" type="string"/>
+            <column name="customer_phone_number" type="string"/>
+            <column name="customer_identity_card" type="string"/>
+            <column name="product_name" type="string"/>
+            <column name="imei" type="string"/>
+            <column name="icloud" type="string"/>
+            <column name="user_create" type="string"/>
+            <column name="note" type="string"/>
+            <column name="status" type="string"/>
+            <column name="is_deleted" type="boolean"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

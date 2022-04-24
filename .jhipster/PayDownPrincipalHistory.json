@@ -1,0 +1,30 @@
+{
+  "applications": "*",
+  "changelogDate": "20220416163811",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "pay_down_principal_history",
+  "fields": [
+    {
+      "fieldName": "contractId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "payDownPrincipalAmount",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "payerName",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PayDownPrincipalHistory",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}
