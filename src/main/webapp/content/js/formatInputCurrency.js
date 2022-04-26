@@ -1,13 +1,35 @@
 // Jquery Dependency
 
-$("input[data-type='currency']").on({
-  keyup: function () {
-    formatCurrency($(this));
-  },
-  blur: function () {
-    formatCurrency($(this), 'blur');
-  },
+// $("input[data-type='currency']").on({
+//   keyup: function () {
+//     console.warn('onkeyUp: ' + $(this));
+//     formatCurrency($(this));
+//   },
+//   blur: function () {
+//     console.warn('onBlur: ' + $(this));
+//     formatCurrency($(this), 'blur');
+//   },
+// });
+
+$(document).on('keyup', '#contract-totalLoanAmount', function (e) {
+  console.warn('onkeyUp: ' + $(this));
+  formatCurrency($(this));
 });
+$(document).on('blur', '#contract-totalLoanAmount', function (e) {
+  console.warn('onkeyUp: ' + $(this));
+  formatCurrency($(this), 'blur');
+});
+
+// $('#contract-totalLoanAmount').on({
+//   keyup: function (event) {
+//     console.warn('onkeyUp: ' + $(this));
+//     formatCurrency($(this));
+//   },
+//   blur: function (event) {
+//     console.warn('onBlur: ' + $(this));
+//     formatCurrency($(this), 'blur');
+//   },
+// });
 
 function formatNumber(n) {
   // format number 1000000 to 1,234,567

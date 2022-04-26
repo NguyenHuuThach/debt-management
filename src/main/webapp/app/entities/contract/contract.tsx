@@ -132,14 +132,7 @@ import '../components/Debt/index.scss';
 import InformationBox from '../components/InformationBox';
 import Helmet from 'react-helmet';
 import DebtCreate from '../components/Popup/DebtCreate';
-import FinalSettlement from '../components/Popup/FinalSettlement';
-import MoreDebt from '../components/Popup/MoreDebt';
-import PayDownRoot from '../components/Popup/PayDownRoot';
-import PayInterest from '../components/Popup/PayInterest';
-import ChangeStatusDebt from '../components/Popup/ChangeStatusDebt';
-import RemoveDebt from '../components/Popup/RemoveDebt';
 import DatatableDeptList from '../components/Datatable/DatatableDebtList';
-import DebtUpdate from '../components/Popup/DebtUpdate';
 
 export const Contract = (props: RouteComponentProps<{ url: string }>) => {
   const dispatch = useAppDispatch();
@@ -159,7 +152,6 @@ export const Contract = (props: RouteComponentProps<{ url: string }>) => {
 
   return (
     <>
-      {/* Content Header (Page header) */}
       <section className="content-header">
         <div className="container-fluid">
           <div className="row mb-2">
@@ -187,20 +179,11 @@ export const Contract = (props: RouteComponentProps<{ url: string }>) => {
           </div>
         </div>
         <DebtCreate />
-        <DebtUpdate />
-        <PayInterest />
-        <FinalSettlement />
-        <PayDownRoot />
-        <MoreDebt />
-        <ChangeStatusDebt />
-        <RemoveDebt />
       </section>
-      {/* /.content */}
-
       <Helmet>
-        <script defer src="content/js/datatable.js" />
-        <script defer src="content/js/reservationDate.js" />
-        <script defer src="content/js/formatInputCurrency.js" />
+        <script async defer src="content/js/datatable.js" />
+        <script async defer src="content/js/reservationDate.js" />
+        <script async defer src="content/js/formatInputCurrency.js" />
       </Helmet>
     </>
   );
