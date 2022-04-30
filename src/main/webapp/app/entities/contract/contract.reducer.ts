@@ -47,7 +47,7 @@ export const updateEntity = createAsyncThunk(
   'contract/update_entity',
   async (entity: IContract, thunkAPI) => {
     const result = await axios.put<IContract>(`${apiUrl}/${entity.id}`, cleanEntity(entity));
-    // document.getElementById('close-modal-xl-update-debt').click();
+    document.getElementById('close-modal-xl-update-debt').click();
     thunkAPI.dispatch(getEntities({}));
     return result;
   },

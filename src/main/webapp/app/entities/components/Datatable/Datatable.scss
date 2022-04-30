@@ -1,8 +1,6 @@
-td.details-control {
-  border-right: 0px solid #fff !important;
+.table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control:before {
 }
-
-th.details-control {
-  border-right: 0px solid #fff !important;
-  align-items: center;
+.table.dataTable > tbody > tr.child ul.dtr-details > li:last-child {
+  display: none;
 }

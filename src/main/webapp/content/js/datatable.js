@@ -1,10 +1,8 @@
 $(function () {
   $('#data-table-debt-list')
     .DataTable({
-      scroller: true,
-      scrollX: true,
-      // responsive: true,
-      responsive: false,
+      responsive: true,
+      // responsive: false,
       lengthChange: false,
       autoWidth: false,
       // autoWidth: true,

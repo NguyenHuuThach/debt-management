@@ -135,14 +135,27 @@ import DebtCreate from '../components/Popup/DebtCreate';
 import DatatableDeptList from '../components/Datatable/DatatableDebtList';
 
 export const Contract = (props: RouteComponentProps<{ url: string }>) => {
+  const [totalInfomation, setTotalInfomation] = useState({
+    totalAmountLent: 0,
+    totalProfitReceived: 0,
+  });
   const dispatch = useAppDispatch();
 
-  // const contractList = useAppSelector(state => state.contract.entities);
-  // const loading = useAppSelector(state => state.contract.loading);
+  const contractList = useAppSelector(state => state.contract.entities);
+  const loading = useAppSelector(state => state.contract.loading);
 
   useEffect(() => {
     dispatch(getEntities({}));
   }, []);
+
+  useEffect(() => {
+    setTotalInfomation({
+      totalAmountLent: contractList.reduce((totalAmountLent, contract) => {
+        return totalAmountLent + contract.totalLoanAmount;
+      }, 0),
+      totalProfitReceived: 10,
+    });
+  }, [contractList]);
 
   // const handleSyncList = () => {
   //   dispatch(getEntities({}));
@@ -167,7 +180,7 @@ export const Contract = (props: RouteComponentProps<{ url: string }>) => {
                 </ol>
               </div> */}
           </div>
-          <InformationBox />
+          <InformationBox data={totalInfomation} />
         </div>
       </section>
       <section className="content">

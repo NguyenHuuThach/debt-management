@@ -60,6 +60,10 @@ const DatatableDeptList = () => {
             <table id="data-table-debt-list" className="table table-bordered table-hover">
               <thead>
                 <tr>
+                  <th className="d-block d-md-block d-lg-none thead-debt-function">
+                    <br />
+                    Chức năng
+                  </th>
                   <th>Khách hàng</th>
                   <th>Ngày tạo</th>
                   <th>Tổng tiền vay(VND)</th>
@@ -73,12 +77,13 @@ const DatatableDeptList = () => {
               <tbody className="tbody-debt">
                 {contractList.map(contract => (
                   <tr key={contract.id}>
+                    <td className="d-block d-md-block d-lg-none">
+                      <GroupButton onEdit={handleOnEdit} data={contract} />
+                    </td>
                     <td>{contract.customerName}</td>
-                    {/* <td>{contract.dateStart}</td> */}
                     <td>
                       {contract.dateStart ? <TextFormat type="date" value={contract.dateStart} format={APP_LOCAL_DATE_FORMAT_2} /> : null}
                     </td>
-                    {/* <td>{contract.totalLoanAmount}</td> */}
                     <td>
                       {contract.totalLoanAmount ? (
                         <TextFormat type="number" value={contract.totalLoanAmount} format={APP_WHOLE_NUMBER_FORMAT} />
@@ -96,6 +101,10 @@ const DatatableDeptList = () => {
               </tbody>
               <tfoot>
                 <tr>
+                  <th className="d-block d-md-block d-lg-none tfoot-debt-function">
+                    <br />
+                    Chức năng
+                  </th>
                   <th>Khách hàng</th>
                   <th>Ngày tạo</th>
                   <th>Tổng tiền vay(VND)</th>

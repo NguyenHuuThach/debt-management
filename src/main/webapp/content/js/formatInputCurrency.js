@@ -12,11 +12,9 @@
 // });
 
 $(document).on('keyup', '#contract-totalLoanAmount', function (e) {
-  console.warn('onkeyUp: ' + $(this));
   formatCurrency($(this));
 });
 $(document).on('blur', '#contract-totalLoanAmount', function (e) {
-  console.warn('onkeyUp: ' + $(this));
   formatCurrency($(this), 'blur');
 });
 
