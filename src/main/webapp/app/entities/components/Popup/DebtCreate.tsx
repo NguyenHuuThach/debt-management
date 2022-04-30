@@ -206,9 +206,7 @@ export const DebtCreate = () => {
   const loading = useAppSelector(state => state.contract.loading);
   const updating = useAppSelector(state => state.contract.updating);
   const updateSuccess = useAppSelector(state => state.contract.updateSuccess);
-  const statusContractValues = Object.keys(StatusContract);
   const handleClose = () => {
-    // document.history.push('/contract');
     handleSyncList();
   };
 
@@ -232,7 +230,6 @@ export const DebtCreate = () => {
     };
 
     dispatch(createEntity(entity));
-    // document.getElementById('close-modal-xl-create-debt').click();
   };
 
   const defaultValues = () => {
@@ -257,9 +254,6 @@ export const DebtCreate = () => {
                     <p>Loading...</p>
                   ) : (
                     <ValidatedForm defaultValues={defaultValues()} onSubmit={saveEntity}>
-                      {/* {!isNew ? (
-                        <ValidatedField name="id" required readOnly id="contract-id" label="ID" validate={{ required: true }} />
-                      ) : null} */}
                       <h5 className="text-center">THÔNG TIN KHÁCH VAY</h5>
                       <ValidatedField
                         label="Họ Tên Khách Hàng"
@@ -313,18 +307,6 @@ export const DebtCreate = () => {
                           required: { value: true, message: 'This field is required.' },
                         }}
                       />
-                      {/* <div className="mb-3">
-                        <label htmlFor="total-loan-debt-create">Tổng tiền vay:</label>
-                        <input
-                          id="contract-totalLoanAmount"
-                          name="totalLoanAmount"
-                          data-cy="totalLoanAmount"
-                          data-type="currency"
-                          type="text"
-                          className="form-control"
-                          placeholder="Nhập tổng tiền vay"
-                        />
-                      </div> */}
 
                       <ValidatedField
                         label="Tổng Tiền Vay(VND)"
@@ -371,6 +353,13 @@ export const DebtCreate = () => {
                           validate: v => isNumber(v) || 'This field should be a number.',
                         }}
                       />
+                      <ValidatedField
+                        label="Người Tạo Hợp Đồng"
+                        id="contract-userCreate"
+                        name="userCreate"
+                        data-cy="userCreate"
+                        type="text"
+                      />
                       <h5 className="text-center">THÔNG TIN TÀI SẢN</h5>
                       <ValidatedField
                         label="Sản Phẩm"
@@ -384,13 +373,7 @@ export const DebtCreate = () => {
                       />
                       <ValidatedField label="Imei" id="contract-imei" name="imei" data-cy="imei" type="text" />
                       <ValidatedField label="Icloud" id="contract-icloud" name="icloud" data-cy="icloud" type="text" />
-                      <ValidatedField
-                        label="Người Tạo Hợp Đồng"
-                        id="contract-userCreate"
-                        name="userCreate"
-                        data-cy="userCreate"
-                        type="text"
-                      />
+
                       <ValidatedField label="Ghi Chú" id="contract-note" name="note" data-cy="note" type="text" />
                       {/* <ValidatedField label="Status" id="contract-status" name="status" data-cy="status" type="select">
                         {statusContractValues.map(statusContract => (

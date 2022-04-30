@@ -9,19 +9,33 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { IContract } from 'app/shared/model/contract.model';
 import { getEntities } from '../../../entities/contract/contract.reducer';
+import DebtUpdate from '../../components/Popup/DebtUpdate';
+import PayInterest from '../../components/Popup/PayInterest';
 
 import GroupButton from '../GroupButton';
 import './Datatable.scss';
+import FinalSettlement from '../Popup/FinalSettlement';
+import PayDownRoot from '../Popup/PayDownRoot';
+import MoreDebt from '../Popup/MoreDebt';
+import ChangeStatusDebt from '../Popup/ChangeStatusDebt';
+import RemoveDebt from '../Popup/RemoveDebt';
+import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 
 const DatatableDeptList = () => {
   const contractList = useAppSelector(state => state.contract.entities);
   const loading = useAppSelector(state => state.contract.loading);
+  const [dataEdit, setDataEdit] = useState({});
 
   const dispatch = useAppDispatch();
+
   const handleSyncList = () => {
     dispatch(getEntities({}));
   };
 
+  const handleOnEdit = e => {
+    // console.warn(e);
+    setDataEdit(e);
+  };
   return (
     <>
       <div className="card">
@@ -46,6 +60,10 @@ const DatatableDeptList = () => {
             <table id="data-table-debt-list" className="table table-bordered table-hover">
               <thead>
                 <tr>
+                  <th className="d-block d-md-block d-lg-none thead-debt-function">
+                    <br />
+                    Chức năng
+                  </th>
                   <th>Khách hàng</th>
                   <th>Ngày tạo</th>
                   <th>Tổng tiền vay(VND)</th>
@@ -59,12 +77,13 @@ const DatatableDeptList = () => {
               <tbody className="tbody-debt">
                 {contractList.map(contract => (
                   <tr key={contract.id}>
+                    <td className="d-block d-md-block d-lg-none">
+                      <GroupButton onEdit={handleOnEdit} data={contract} />
+                    </td>
                     <td>{contract.customerName}</td>
-                    {/* <td>{contract.dateStart}</td> */}
                     <td>
                       {contract.dateStart ? <TextFormat type="date" value={contract.dateStart} format={APP_LOCAL_DATE_FORMAT_2} /> : null}
                     </td>
-                    {/* <td>{contract.totalLoanAmount}</td> */}
                     <td>
                       {contract.totalLoanAmount ? (
                         <TextFormat type="number" value={contract.totalLoanAmount} format={APP_WHOLE_NUMBER_FORMAT} />
@@ -75,13 +94,17 @@ const DatatableDeptList = () => {
                     <td>{contract.note}</td>
                     <td>{status[contract.status]}</td>
                     <td>
-                      <GroupButton />
+                      <GroupButton onEdit={handleOnEdit} data={contract} />
                     </td>
                   </tr>
                 ))}
               </tbody>
               <tfoot>
                 <tr>
+                  <th className="d-block d-md-block d-lg-none tfoot-debt-function">
+                    <br />
+                    Chức năng
+                  </th>
                   <th>Khách hàng</th>
                   <th>Ngày tạo</th>
                   <th>Tổng tiền vay(VND)</th>
@@ -98,6 +121,14 @@ const DatatableDeptList = () => {
           )}
         </div>
       </div>
+
+      {dataEdit && <DebtUpdate data={dataEdit} />}
+      <PayInterest />
+      <FinalSettlement />
+      <PayDownRoot />
+      <MoreDebt />
+      <ChangeStatusDebt />
+      <RemoveDebt />
     </>
   );
 };

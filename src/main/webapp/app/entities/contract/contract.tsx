@@ -132,24 +132,30 @@ import '../components/Debt/index.scss';
 import InformationBox from '../components/InformationBox';
 import Helmet from 'react-helmet';
 import DebtCreate from '../components/Popup/DebtCreate';
-import FinalSettlement from '../components/Popup/FinalSettlement';
-import MoreDebt from '../components/Popup/MoreDebt';
-import PayDownRoot from '../components/Popup/PayDownRoot';
-import PayInterest from '../components/Popup/PayInterest';
-import ChangeStatusDebt from '../components/Popup/ChangeStatusDebt';
-import RemoveDebt from '../components/Popup/RemoveDebt';
 import DatatableDeptList from '../components/Datatable/DatatableDebtList';
-import DebtUpdate from '../components/Popup/DebtUpdate';
 
 export const Contract = (props: RouteComponentProps<{ url: string }>) => {
+  const [totalInfomation, setTotalInfomation] = useState({
+    totalAmountLent: 0,
+    totalProfitReceived: 0,
+  });
   const dispatch = useAppDispatch();
 
-  // const contractList = useAppSelector(state => state.contract.entities);
-  // const loading = useAppSelector(state => state.contract.loading);
+  const contractList = useAppSelector(state => state.contract.entities);
+  const loading = useAppSelector(state => state.contract.loading);
 
   useEffect(() => {
     dispatch(getEntities({}));
   }, []);
+
+  useEffect(() => {
+    setTotalInfomation({
+      totalAmountLent: contractList.reduce((totalAmountLent, contract) => {
+        return totalAmountLent + contract.totalLoanAmount;
+      }, 0),
+      totalProfitReceived: 10,
+    });
+  }, [contractList]);
 
   // const handleSyncList = () => {
   //   dispatch(getEntities({}));
@@ -159,7 +165,6 @@ export const Contract = (props: RouteComponentProps<{ url: string }>) => {
 
   return (
     <>
-      {/* Content Header (Page header) */}
       <section className="content-header">
         <div className="container-fluid">
           <div className="row mb-2">
@@ -175,7 +180,7 @@ export const Contract = (props: RouteComponentProps<{ url: string }>) => {
                 </ol>
               </div> */}
           </div>
-          <InformationBox />
+          <InformationBox data={totalInfomation} />
         </div>
       </section>
       <section className="content">
@@ -187,20 +192,11 @@ export const Contract = (props: RouteComponentProps<{ url: string }>) => {
           </div>
         </div>
         <DebtCreate />
-        <DebtUpdate />
-        <PayInterest />
-        <FinalSettlement />
-        <PayDownRoot />
-        <MoreDebt />
-        <ChangeStatusDebt />
-        <RemoveDebt />
       </section>
-      {/* /.content */}
-
       <Helmet>
-        <script defer src="content/js/datatable.js" />
-        <script defer src="content/js/reservationDate.js" />
-        <script defer src="content/js/formatInputCurrency.js" />
+        <script async defer src="content/js/datatable.js" />
+        <script async defer src="content/js/reservationDate.js" />
+        <script async defer src="content/js/formatInputCurrency.js" />
       </Helmet>
     </>
   );
